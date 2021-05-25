@@ -1,4 +1,5 @@
 import './style.css'
+import './style/main.css'
 import * as THREE from 'three'
 import { GUI } from 'three/examples/jsm/libs/dat.gui.module.js';
 import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass.js';
@@ -8,7 +9,7 @@ import { OverWorld } from "./components/overworld.js"
 
 
 
-const canvas = document.querySelector('canvas.abc')
+const canvas = document.querySelector('canvas.main')
 
 const sizes = {
     width: window.innerWidth,
@@ -40,9 +41,9 @@ camera.position.z = 2
 scene.add(camera)
 
 
-
+//renderer.setClearColor ( 0xffffff, 1 );
 renderer.setSize(sizes.width, sizes.height)
-renderer.autoClear = false;
+//renderer.autoClear = false;
 
 function animate() {
     mesh.rotation.x -= 0.01;

@@ -14,7 +14,8 @@ module.exports = {
     //         path.join(__dirname, './src/gui.js')
     //     ]
     // },
-    entry: ['./src/main.js', './src/components/ui.js', './src/components/transaction.js'],
+    //entry: ['./src/main.js', './src/components/ui.js', './src/components/transaction.js'],
+    entry: ['./src/main.js', './src/components/ui-test.js'],
     output:
     {
         filename: 'bundle.[contenthash].js',
@@ -26,10 +27,10 @@ module.exports = {
             process: "process/browser"
         },
         fallback: {
-          "http": require.resolve("stream-http"),
-          "fs": false,
-          "child_process": false,
-          "worker_threads": false
+            "http": require.resolve("stream-http"),
+            "fs": false,
+            "child_process": false,
+            "worker_threads": false
         }
     },
     plugins:
@@ -83,7 +84,7 @@ module.exports = {
 
                 // Images
                 {
-                    test: /\.(jpg|png|gif|svg)$/,
+                    test: /\.(jpg|png|gif|svg|psd)$/,
                     use:
                         [
                             {
@@ -91,6 +92,20 @@ module.exports = {
                                 options:
                                 {
                                     outputPath: 'assets/images/'
+                                }
+                            }
+                        ]
+                },
+                // Models
+                {
+                    test: /\.(fbx)$/,
+                    use:
+                        [
+                            {
+                                loader: 'file-loader',
+                                options:
+                                {
+                                    outputPath: 'assets/models/'
                                 }
                             }
                         ]

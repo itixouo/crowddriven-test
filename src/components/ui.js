@@ -1,3 +1,4 @@
+import '/ui.css'
 import * as transaction from './transaction';
 
 let token = 0;
