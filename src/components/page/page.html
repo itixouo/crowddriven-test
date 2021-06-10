@@ -1,32 +1,51 @@
-<div id="backdrop"></div>
 <div id="content">
-         <div class="overlay-interact">
-                <button type="button" id="a-button">a</button> 
-                <button type="button" id="b-button">b</button> 
-        </div>
-        <div class="aspect-ratio-box" id="interactive-box">
-                <!-- <div class="grid-container">
-                        <div class="grid-item">1</div>
-                        <div class="grid-item">2</div>
-                        <div class="grid-item">3</div>  
-                        <div class="grid-item">4</div>
-                        <div class="grid-item">5</div>
-                        <div class="grid-item">6</div>  
-                        <div class="grid-item">7</div>
-                        <div class="grid-item">8</div>
-                        <div class="grid-item">9</div>  
-                        <div class="grid-item">10</div>  
-                        <div class="grid-item">11</div>
-                        <div class="grid-item">12</div>
-                        <div class="grid-item">13</div>  
-                        <div class="grid-item">14</div>  
-                        <div class="grid-item">15</div>
-                        <div class="grid-item">16</div>
-                        
-                      </div> -->
-
-        </div>
 
   
+        <div class="description-box">
+                
+                <div class="description-text">
+                        <h4 id="description-title">Title</h4>
+                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at risus enim. Ut turpis nunc, semper
+                                dignissim hendrerit eu, pulvinar ac dolor. Lorem ipsum dolor.
+                                </br>
+                        </h6>
+                        <h6>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed pellentesque sem. Nunc id mi at quam efficitur elementum
+                                quis.
+                        </h6>
+                        <!-- <button type="button" id="a-button">a</button>
+                        <button type="button" id="b-button">b</button> -->
+                </div>
+               
+        </div>
+
+        <div class="aspect-ratio-box" id="interactive-box">
+
+                <p id="token-text">&#10084; 0</p>
+
+                <canvas class="interactive" id="interactive"></canvas>
+                <div>
+                        <div id="bonus-box">BONUS </div>
+                        <p id="task-text"> &#10063; 0/10</p>
+
+
+                </div>
+                <button type="button" id="start-box" class="start-box">START</button>
+        </div>
+
+        <button type="button" class="dismiss-description" id="dismiss-description">x</button>
+        <div id="backdrop"></div>
+
 </div>
 
+
+<div id="content-complete">
+        <button type="button" class="dismiss-complete" id="dismiss-complete">x</button>
+        <h3>Working is complete</h3>
+        <h5>Take a rest and come again</h5>
+        <span>Energy --</span>
+        <br>
+
+        <div id="backdrop-complete"></div>
+       
+</div>

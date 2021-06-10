@@ -31,3 +31,12 @@
 
 }
 
+
+.disable-events {
+  pointer-events: none;
+}
+
+
+.enable-events {
+  pointer-events: auto;
+}

@@ -36,14 +36,13 @@ const mesh = new THREE.Mesh(geometry, material)
 scene.add(mesh)
 
 
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
+const camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height)
 camera.position.z = 2
 scene.add(camera)
 
 
-//renderer.setClearColor ( 0xffffff, 1 );
 renderer.setSize(sizes.width, sizes.height)
-//renderer.autoClear = false;
+
 
 function animate() {
     mesh.rotation.x -= 0.01;
@@ -77,10 +76,10 @@ function updateRender() {
 
 
 
-const interaction = new Interaction(renderer, scene, camera);
+// const interaction = new Interaction(renderer, scene, camera);
 
-mesh.cursor = 'pointer';
-mesh.on('click', function (ev) { console.log("aaaaa"); });
+// mesh.cursor = 'pointer';
+// mesh.on('click', function (ev) { console.log("aaaaa"); });
 
 
 

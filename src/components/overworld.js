@@ -6,10 +6,11 @@ import { Interaction } from 'three.interaction';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import * as Page from './page.js';
 
 var renderer, scene, camera;
 var interaction;
-var mesh;
+var mesh1 , mesh2;
 
 var fbxLoader = new FBXLoader();
 var objLoader = new OBJLoader();
@@ -35,27 +36,56 @@ export class OverWorld {
     renderer = _renderer;
     scene = new THREE.Scene();
 
-    let geometry = new THREE.BoxGeometry(1, 1, 1)
-    let material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-    mesh = new THREE.Mesh(geometry, material)
+    let geometry = new THREE.OctahedronGeometry(1, 0)
+    let material1 = new THREE.MeshPhongMaterial({ color: 0xffff00 })
+    mesh1 = new THREE.Mesh(geometry, material1)
+    mesh1.position.x = -6.5;
+    mesh1.position.y = 3;
+
+    scene.add(mesh1);
+
+    let material2 = new THREE.MeshPhongMaterial({ color: 0xff0000 })
+    mesh2 = new THREE.Mesh(geometry, material2)
+    mesh2.position.x = 6.5;
+    mesh2.position.y = 3;
+
+    scene.add(mesh2);
 
 
-    scene.add(mesh)
+
+
+
     //loadMesh();
     loadImage();
 
-    camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
-    camera.position.z = 10
+    camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height)
+    camera.position.z = 20
     camera.position.x = 0
     scene.add(camera)
 
     interaction = new Interaction(renderer, scene, camera);
 
-    mesh.cursor = 'pointer';
-    mesh.on('click', function (ev) {
-      toggleUI();
+    mesh1.cursor = 'pointer';
+    mesh1.on('click', function (ev) {
+      Page.initInteractive("interactive1");
 
     });
+
+  //   setTimeout(function () {
+  //     Page.initInteractive("interactive1");
+  //     Page.startInteractive();
+  // }, 500);
+  
+
+    mesh2.cursor = 'pointer';
+    mesh2.on('click', function (ev) {
+      Page.initInteractive("interactive2");
+
+    });
+
+
+
+
     //toggleUI();
 
 
@@ -76,8 +106,9 @@ export class OverWorld {
 
 
   animate() {
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.01;
+    //mesh.rotation.x += 0.01;
+    mesh1.rotation.y += 0.01;
+    mesh2.rotation.y -= 0.01;
   }
 
 
@@ -127,7 +158,6 @@ function loadImage() {
 
   const map = textureLoader.load('images/main.jpg', function (texture) {
     const material = new THREE.SpriteMaterial({ map: texture });
-    const sprite = new THREE.Sprite(material);
 
     const width = material.map.image.width;
     const height = material.map.image.height;
